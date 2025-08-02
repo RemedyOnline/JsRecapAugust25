@@ -147,17 +147,17 @@ function loopExample() {
 	console.log("looping with VAR (fxnScoped)");
 	for (var i = 0; i <= 3; i++) {
 		console.log("var number: ", i);
-		setTimeout(() => {
-			console.log("var index: ", i);
-		}, 10);
+		// setTimeout(() => {
+		// 	console.log("var index: ", i);
+		// }, 10);
 	}
 
 	console.log("looping with LET (blockScoped)");
 	for (let j = 0; j <= 3; j++) {
 		console.log("let number: ", j);
-		setTimeout(() => {
-			console.log("let index: ", j);
-		}, 20);
+		// setTimeout(() => {
+		// console.log("let index: ", j);
+		// }, 20);
 	}
 }
 
@@ -174,3 +174,140 @@ function fourth() {
 	console.log("4");
 }
 fourth();
+
+// OPERATORS IN JS
+// 1. Arithmetic Operators
+console.log("");
+console.log(" JS OPERATORS - Arithmetic");
+
+let a = 10,
+	b = 3;
+
+console.log(a + b); // 13 (Addition)
+console.log(a - b); // 7  (Subtraction)
+console.log(a * b); // 30 (Multiplication)
+console.log(a / b); // 3.333... (Division)
+console.log(a % b); // 1  (Modulus - remainder)
+console.log(a ** b); // 1000 (Exponentiation)
+
+// Increment/Decrement
+console.log(++a); // 11 (Pre-increment)
+console.log(a++); // 11 (Post-increment, then a becomes 12)
+console.log(--b); // 2  (Pre-decrement)
+console.log(b--); // 2  (Post-decrement, then b becomes 1)
+console.log(a);
+console.log(b);
+
+console.log("");
+console.log(" JS OPERATORS - Arithmetic");
+console.log(" JS OPERATORS - Arithmetic");
+console.log(" JS OPERATORS - Arithmetic");
+
+let p = 5;
+let q = 3;
+console.log(p & q);
+console.log(p | q);
+console.log(p ^ q);
+console.log(~p);
+console.log(p << 1);
+console.log(p >> 1);
+
+let arr = [1, 2, 3];
+let obj = { title: "developer" };
+
+console.log(typeof arr);
+console.log(arr instanceof Object);
+console.log(arr instanceof Array);
+console.log(obj instanceof Object);
+console.log(obj instanceof Array);
+
+let myAge = 15;
+let classs = myAge >= 18 ? "adult" : "teenager";
+console.log(classs);
+
+let myScore = 66;
+let grade =
+	myScore >= 80
+		? "A"
+		: myScore >= 75
+		? "B+"
+		: myScore >= 70
+		? "B"
+		: myScore >= 65
+		? "C+"
+		: myScore >= 60
+		? "C"
+		: myScore >= 55
+		? "D+"
+		: "D";
+
+console.log(grade);
+
+let user = null;
+let defaultName = "Guest";
+
+console.log(user ?? defaultName);
+console.log("Mike" ?? defaultName);
+user = "kofi";
+console.log(user ?? defaultName);
+console.log(undefined ?? defaultName);
+console.log(user ?? defaultName);
+console.log("" ?? defaultName);
+
+let newUser = {
+	name: "Ama",
+	address: {
+		street: "Lapaz",
+	},
+};
+
+console.log(newUser);
+console.log(newUser.boy);
+console.log(newUser?.boy);
+console.log(newUser?.name);
+console.log(newUser?.address);
+console.log(newUser?.address?.street);
+
+let arr1 = [2, 4, 6, 8];
+let arr2 = [1, 3, 5, 7];
+let obj1 = { a: 1, b: 2, c: 3 };
+let obj2 = { m: 4, n: 5, p: 6 };
+let combinedArr = [...arr1, ...arr2];
+let combinedObj = { ...obj1, ...obj2 };
+
+console.log(combinedArr);
+console.log(combinedObj);
+
+let nullVar = null;
+console.log(typeof nullVar);
+console.log(nullVar === null);
+
+const sum = (digit1 = 2, digit2 = 3) => {
+	return digit1 + digit2;
+};
+
+console.log(sum());
+
+const diff = ({ num1 = 4, num2 = 7 } = {}) => num2 - num1;
+console.log(diff({ num1: 2 }));
+
+// IIFE...
+(function () {
+	console.log("I run immediately bro..!");
+})();
+
+(function () {
+	console.log("I also run immediately charle..!!!!!!");
+})();
+
+(function (name, address) {
+	console.log(`Hi ${name}, I live @${address} too...`);
+})("John", "Lapaz");
+
+(() => {
+	console.log("Arrow IIFE!");
+})();
+
+((m, n) => {
+	console.log(`Age = ${m + n}`);
+})(10, 8);
