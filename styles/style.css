@@ -1,0 +1,22 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+a {
+	color: red;
+}
+
+a:visited {
+	font-weight: 900;
+}
+
+a:active {
+	color: greenyellow;
+	text-decoration: overline;
+	font-size: 36px;
+}
+
+a:hover {
+	font-style: italic;
+}
