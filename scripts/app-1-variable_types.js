@@ -68,13 +68,8 @@ delete firstArr[2];
 console.log(firstArr);
 firstArr[2] = "Hi";
 console.log(firstArr);
-console.log(0 in firstArr);
-console.log(1 in firstArr);
 delete firstArr[2];
-console.log(2 in firstArr);
 console.log(firstArr);
-console.log(3 in firstArr);
-console.log(4 in firstArr);
 
 console.log(" ");
 
@@ -131,7 +126,26 @@ console.log(new Date() instanceof Date);
 console.log(new Date() instanceof Object);
 
 console.log(" ");
+
+const secondArr = [2, 4, 6, 8];
+console.log(secondArr);
+secondArr.splice(3, 2);
+console.log(secondArr);
+
 console.log(" ");
+
+// write a function that accepts any value and returns its data type...
+function describeDataType(value) {
+	console.log(`${value} is a/an`, typeof value);
+}
+describeDataType(12);
+describeDataType("I did it!!");
+describeDataType(true);
+describeDataType(1n);
+describeDataType(person);
+describeDataType(firstArr);
+describeDataType();
+
 console.log(" ");
 console.log(" ");
 console.log(" ");
