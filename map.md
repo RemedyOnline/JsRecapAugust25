@@ -5,7 +5,7 @@ We'll break each of these down with clear explanations, examples, and short prac
 2. ~Operators (arithmetic, comparison, logical, assignment)~
 3. ~Control Flow (if, else, switch)~
 4. ~Loops (for, while, for...of, for...in)~
-5. Functions (declaration, expression, arrow functions, parameters vs arguments)
+5. ~Functions (declaration, expression, arrow functions, parameters vs arguments)~
 6. Scope (global, local, block, lexical)
 7. Hoisting
 8. The this keyword
