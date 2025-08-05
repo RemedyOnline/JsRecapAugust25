@@ -1,4 +1,4 @@
-🧠 Phase 1: Core JavaScript Concepts
+#🧠 Phase 1: Core JavaScript Concepts
 We'll break each of these down with clear explanations, examples, and short practice tasks:
 
 1. ~Variables and Data Types (var, let, const, primitives, typeof)~
@@ -6,16 +6,16 @@ We'll break each of these down with clear explanations, examples, and short prac
 3. ~Control Flow (if, else, switch)~
 4. ~Loops (for, while, for...of, for...in)~
 5. ~Functions (declaration, expression, arrow functions, parameters vs arguments)~
-6. Scope (global, local, block, lexical)
-7. Hoisting
-8. The this keyword
+6. ~Scope (global, local, block, lexical)~
+7. ~Hoisting~
+8. ~The this keyword~
 9. Array & String Methods (map, filter, reduce, slice, splice, split, join, etc.)
 10. Objects & Object Methods
 11. Falsy vs Truthy values
 12. Equality: == vs ===
 13. Type coercion
 
-🚀 Phase 2: Intermediate JavaScript Concepts
+##🚀 Phase 2: Intermediate JavaScript Concepts
 
 1. ES6+ Features (let/const, destructuring, spread/rest, template literals)
 2. Callback functions
@@ -29,7 +29,7 @@ We'll break each of these down with clear explanations, examples, and short prac
 10. DOM manipulation basics (just in case)
 11. LocalStorage/sessionStorage
 
-🧩 Phase 3: Algorithm Practice
+###🧩 Phase 3: Algorithm Practice
 
 1. Once you're solid on the concepts above, we'll do focused practice on:
 

@@ -15,39 +15,157 @@
 </head>
 
 <body>
-   <main>
-      <h1>ReCAP</h1>
-      <a href="/page2.html">Link</a><br>
-      <a href="#sectionn">Link</a>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <section id="sectionn">
-         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit, dolorum? Tempore sequi fuga pariatur nulla,
-            saepe accusantium esse non, ab, impedit nihil odio porro provident? Accusantium dolorem pariatur sit quos!
-         </p>
-         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit, dolorum? Tempore sequi fuga pariatur nulla,
-            saepe accusantium esse non, ab, impedit nihil odio porro provident? Accusantium dolorem pariatur sit quos!
-         </p>
-         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit, dolorum? Tempore sequi fuga pariatur nulla,
-            saepe accusantium esse non, ab, impedit nihil odio porro provident? Accusantium dolorem pariatur sit quos!
-         </p>
-         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit, dolorum? Tempore sequi fuga pariatur nulla,
-            saepe accusantium esse non, ab, impedit nihil odio porro provident? Accusantium dolorem pariatur sit quos!
-         </p>
-         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit, dolorum? Tempore sequi fuga pariatur nulla,
-            saepe accusantium esse non, ab, impedit nihil odio porro provident? Accusantium dolorem pariatur sit quos!
-         </p>
+   <main class="container">
+      <header class="header">
+         <h1 class="main-title">JavaScript ReCAP</h1>
+         <nav class="navigation">
+            <a
+               href="/page2.html"
+               class="nav-link"
+            >Page 2</a>
+            <a
+               href="#curriculum"
+               class="nav-link"
+            >Curriculum</a>
+         </nav>
+      </header>
+
+      <section
+         id="curriculum"
+         class="curriculum"
+      >
+         <div class="phase phase-1">
+            <h2 class="phase-title">
+               <span class="emoji">🧠</span>
+               Phase 1: Core JavaScript Concepts
+            </h2>
+            <p class="phase-description">
+               We'll break each of these down with clear explanations, examples, and short practice tasks:
+            </p>
+
+            <ol class="concept-list">
+               <li class="concept-item completed">
+                  <span class="concept-text">Variables and Data Types (var, let, const, primitives, typeof)</span>
+               </li>
+               <li class="concept-item completed">
+                  <span class="concept-text">Operators (arithmetic, comparison, logical, assignment)</span>
+               </li>
+               <li class="concept-item completed">
+                  <span class="concept-text">Control Flow (if, else, switch)</span>
+               </li>
+               <li class="concept-item completed">
+                  <span class="concept-text">Loops (for, while, for...of, for...in)</span>
+               </li>
+               <li class="concept-item completed">
+                  <span class="concept-text">Functions (declaration, expression, arrow functions, parameters vs
+                     arguments)</span>
+               </li>
+               <li class="concept-item completed">
+                  <span class="concept-text">Scope (global, local, block, lexical)</span>
+               </li>
+               <li class="concept-item completed">
+                  <span class="concept-text">Hoisting</span>
+               </li>
+               <li class="concept-item">
+                  <span class="concept-text">The this keyword</span>
+               </li>
+               <li class="concept-item">
+                  <span class="concept-text">Array & String Methods (map, filter, reduce, slice, splice, split, join,
+                     etc.)</span>
+               </li>
+               <li class="concept-item">
+                  <span class="concept-text">Objects & Object Methods</span>
+               </li>
+               <li class="concept-item">
+                  <span class="concept-text">Falsy vs Truthy values</span>
+               </li>
+               <li class="concept-item">
+                  <span class="concept-text">Equality: == vs ===</span>
+               </li>
+               <li class="concept-item">
+                  <span class="concept-text">Type coercion</span>
+               </li>
+            </ol>
+         </div>
+
+         <div class="phase phase-2">
+            <h2 class="phase-title">
+               <span class="emoji">🚀</span>
+               Phase 2: Intermediate JavaScript Concepts
+            </h2>
+
+            <ol class="concept-list">
+               <li class="concept-item">
+                  <span class="concept-text">ES6+ Features (let/const, destructuring, spread/rest, template
+                     literals)</span>
+               </li>
+               <li class="concept-item">
+                  <span class="concept-text">Callback functions</span>
+               </li>
+               <li class="concept-item">
+                  <span class="concept-text">Higher-order functions</span>
+               </li>
+               <li class="concept-item">
+                  <span class="concept-text">Closures</span>
+               </li>
+               <li class="concept-item">
+                  <span class="concept-text">Promises & Async/Await</span>
+               </li>
+               <li class="concept-item">
+                  <span class="concept-text">Event loop & Call stack (execution context)</span>
+               </li>
+               <li class="concept-item">
+                  <span class="concept-text">Error handling (try...catch)</span>
+               </li>
+               <li class="concept-item">
+                  <span class="concept-text">JSON parsing/stringifying</span>
+               </li>
+               <li class="concept-item">
+                  <span class="concept-text">Modules (import/export)</span>
+               </li>
+               <li class="concept-item">
+                  <span class="concept-text">DOM manipulation basics (just in case)</span>
+               </li>
+               <li class="concept-item">
+                  <span class="concept-text">LocalStorage/sessionStorage</span>
+               </li>
+            </ol>
+         </div>
+
+         <div class="phase phase-3">
+            <h2 class="phase-title">
+               <span class="emoji">🧩</span>
+               Phase 3: Algorithm Practice
+            </h2>
+
+            <p class="phase-description">
+               Once you're solid on the concepts above, we'll do focused practice on:
+            </p>
+
+            <ul class="practice-list">
+               <li class="practice-item">Reversing a string</li>
+               <li class="practice-item">Palindrome check</li>
+               <li class="practice-item">Factorial</li>
+               <li class="practice-item">FizzBuzz</li>
+               <li class="practice-item">Finding duplicates in an array</li>
+               <li class="practice-item">Flattening nested arrays</li>
+               <li class="practice-item">Anagram checker</li>
+               <li class="practice-item">Sorting challenges</li>
+               <li class="practice-item">And more...</li>
+            </ul>
+         </div>
       </section>
    </main>
+
    <!-- <script src="/scripts/script.js"></script> -->
    <!-- <script src="/scripts/app-1-variable_types.js"></script> -->
    <!-- <script src="/scripts/app-2-operators.js"></script> -->
    <!-- <script src="/scripts/app-3-control_flow.js"></script> -->
    <!-- <script src="/scripts/app-4-loops.js"></script> -->
-   <script src="/scripts/app-5-functions.js"></script>
+   <!-- <script src="/scripts/app-5-functions.js"></script> -->
+   <!-- <script src="/scripts/app-6-scope.js"></script> -->
+   <!-- <script src="/scripts/app-7-hoisting.js"></script> -->
+   <script src="/scripts/app-8-this_keyword.js"></script>
 </body>
 
 </html>

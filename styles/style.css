@@ -4,6 +4,195 @@
 	box-sizing: border-box;
 }
 
+body {
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	min-height: 100vh;
+	color: #333;
+	line-height: 1.6;
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+/* Header Styles */
+.header {
+	text-align: center;
+	margin-bottom: 40px;
+	padding: 30px 0;
+	background: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(10px);
+	border-radius: 20px;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.main-title {
+	font-size: 3rem;
+	font-weight: 700;
+	color: white;
+	margin-bottom: 20px;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.navigation {
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+}
+
+.nav-link {
+	display: inline-block;
+	padding: 12px 24px;
+	background: rgba(255, 255, 255, 0.2);
+	color: white;
+	text-decoration: none;
+	border-radius: 25px;
+	transition: all 0.3s ease;
+	border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.nav-link:hover {
+	background: rgba(255, 255, 255, 0.3);
+	transform: translateY(-2px);
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Curriculum Styles */
+.curriculum {
+	display: grid;
+	gap: 30px;
+}
+
+.phase {
+	background: rgba(255, 255, 255, 0.95);
+	border-radius: 20px;
+	padding: 30px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	transition: transform 0.3s ease;
+}
+
+.phase:hover {
+	transform: translateY(-5px);
+}
+
+.phase-title {
+	font-size: 2rem;
+	font-weight: 600;
+	color: #2c3e50;
+	margin-bottom: 15px;
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+
+.emoji {
+	font-size: 2.5rem;
+}
+
+.phase-description {
+	font-size: 1.1rem;
+	color: #666;
+	margin-bottom: 25px;
+	font-style: italic;
+}
+
+/* List Styles */
+.concept-list,
+.practice-list {
+	list-style: none;
+	display: grid;
+	gap: 12px;
+}
+
+.concept-item,
+.practice-item {
+	padding: 15px 20px;
+	background: #f8f9fa;
+	border-radius: 10px;
+	border-left: 4px solid #3498db;
+	transition: all 0.3s ease;
+	position: relative;
+}
+
+.concept-item:hover,
+.practice-item:hover {
+	background: #e3f2fd;
+	transform: translateX(5px);
+	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.concept-item.completed {
+	border-left-color: #27ae60;
+	background: #f0f8f0;
+}
+
+.concept-item.completed::before {
+	content: "✓";
+	position: absolute;
+	right: 15px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #27ae60;
+	font-weight: bold;
+	font-size: 1.2rem;
+}
+
+.concept-text {
+	font-weight: 500;
+	color: #2c3e50;
+}
+
+.practice-item {
+	border-left-color: #e74c3c;
+	background: #fef7f7;
+}
+
+.practice-item:hover {
+	background: #fdeaea;
+}
+
+/* Phase-specific styling */
+.phase-1 {
+	border-top: 5px solid #3498db;
+}
+
+.phase-2 {
+	border-top: 5px solid #e74c3c;
+}
+
+.phase-3 {
+	border-top: 5px solid #f39c12;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.container {
+		padding: 15px;
+	}
+
+	.main-title {
+		font-size: 2rem;
+	}
+
+	.phase-title {
+		font-size: 1.5rem;
+	}
+
+	.phase {
+		padding: 20px;
+	}
+
+	.navigation {
+		flex-direction: column;
+		align-items: center;
+	}
+}
+
+/* Keep existing link styles */
 a {
 	color: red;
 }

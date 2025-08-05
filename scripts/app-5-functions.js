@@ -97,3 +97,25 @@ console.log(wordCounter(""));
 // 	return str.trim().split(/\d/);
 // }
 // console.log(returnNumbers("Hello1 I4453 am goin3"));
+
+// FUNCTION TO RETURN THE INITIALS OF YOUR NAME..
+// MY SOLUTION...
+function initialsGenerator(yourName) {
+	let wordsInName = yourName.trim().split(" ");
+	// let namesArray = wordsInName.split("");
+	return `${yourName} - ${wordsInName[0][0]}.${wordsInName[1][0]}.${wordsInName[2][0]} `;
+}
+console.log(initialsGenerator("Michael Agyemang Prempeh"));
+
+// CORRECTED SOLUTION...
+function nameInitialsGenerator(yourName) {
+	const individualNames = yourName.trim().split(" ");
+	if (individualNames.length === 0 || yourName.trim() === "") {
+		return `invalid name bro!`;
+	}
+	const initials = individualNames
+		.map((word) => word[0].toUpperCase())
+		.join(".");
+	return `${yourName}  - ${initials}`;
+}
+console.log(nameInitialsGenerator("Kofi Manu asamoah isaac"));
