@@ -32,3 +32,14 @@ showName.apply(newUser);
 
 const boundFunc = showName.bind(newUser);
 boundFunc();
+
+const team = {
+	name: "Alpha",
+	showTeam: function () {
+		setTimeout(function () {
+			console.log(this.name);
+		}, 1000);
+	},
+};
+
+team.showTeam(); // Prints what? Fix it to print "Alpha"
