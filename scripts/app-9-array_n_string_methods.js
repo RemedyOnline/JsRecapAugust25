@@ -347,3 +347,41 @@ function finalTask(str) {
 		.map((num) => num * num);
 }
 console.log(finalTask("3,2,1"));
+
+// STRING METHODS...
+const sampleText = "Alpha Hour...";
+console.log(sampleText);
+console.log(sampleText.length);
+console.log(sampleText[0]);
+console.log(sampleText[sampleText.length - 1]);
+console.log(sampleText.indexOf("Hour"));
+console.log(sampleText.endsWith("."));
+console.log(sampleText.startsWith("A"));
+console.log(sampleText.substring(0, 5));
+console.log(sampleText.charAt(6));
+
+// REPLACING TEXT...
+console.log("");
+const favAnimals = "I like cats but cats are cute";
+console.log(favAnimals);
+console.log(favAnimals.replace("cats", "dogs"));
+console.log(favAnimals.replaceAll("cats", "dogs"));
+console.log(favAnimals.replace(/cats/g, "dogs"));
+
+// REPEATING & PADDING...
+const star = "*";
+const numeral = "5";
+console.log(star.repeat(10));
+console.log(numeral.padStart(3, "0"));
+console.log(numeral.padEnd(3, "0"));
+
+const email = "user@example.com";
+const isValid = email.includes("@") && email.includes(".");
+console.log(isValid);
+
+const baseURL = "https://api.example.com";
+const endpoint = "users";
+const id = "123";
+
+const fullURL = [baseURL, endpoint, id].join("/");
+console.log(fullURL);
