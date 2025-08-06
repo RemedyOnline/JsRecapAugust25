@@ -9,7 +9,7 @@ We'll break each of these down with clear explanations, examples, and short prac
 6. ~Scope (global, local, block, lexical)~
 7. ~Hoisting~
 8. ~The this keyword~
-9. Array & String Methods (map, filter, reduce, slice, splice, split, join, etc.)
+9. ~Array & String Methods (map, filter, reduce, slice, splice, split, join, etc.)~
 10. Objects & Object Methods
 11. Falsy vs Truthy values
 12. Equality: == vs ===

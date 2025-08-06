@@ -116,6 +116,7 @@ body {
 	border-left: 4px solid #3498db;
 	transition: all 0.3s ease;
 	position: relative;
+	box-shadow: 0 2px 5px rgba(21, 21, 100, 0.1);
 }
 
 .concept-item:hover,
