@@ -15,7 +15,9 @@ console.log(user.name);
 // BRACKET NOTATION...
 console.log(user["age"]);
 const key = "isDeveloper";
-console.log(user[key]); // for dynamic keys...
+console.log("Dynamic Key - 1:", user[key]); // for dynamic keys...
+console.log("Dynamic Key - 2:", user["isDeveloper"]); // for dynamic keys...
+console.log(user);
 
 // UPDATING & ADDING PROPERTIES...
 user.age = 19;
@@ -30,7 +32,11 @@ user.age = 19;
 
 // LOOPING THROUGH OBJECTS... - for...in
 for (let u in user) {
+	// console.log(u);
+	// console.log(`${u}`);
+	// console.log(`${user[u]}`);
 	console.log(`${u}: ${user[u]}`);
+	// console.log(user.u);
 }
 
 console.log("age" in user);
@@ -51,6 +57,21 @@ for (const [color, hex] of entries) {
 	console.log(`${color}: ${hex}`);
 }
 
+const product = {
+	name: "phone",
+	brand: "iPhone",
+	color: "sea-blue",
+	storage: 128,
+	isNew: true,
+};
+
+const productEntries = Object.entries(product);
+console.log(productEntries);
+
+for (const [key, value] of productEntries) {
+	console.log(`${key} of product is - ${value}`);
+}
+
 // - Object.assign() - copies values from one object to another...
 let person = Object.assign(user);
 console.log("Person object:", person);
@@ -62,6 +83,11 @@ person = Object.assign(user, newName);
 console.log("person:", person);
 console.log("user:", user);
 console.log("newName:", newName);
+user.brand = "Samsung";
+
+console.log("");
+const newProduct = Object.assign(product, user);
+console.log("New Product:", newProduct);
 
 console.log("");
 
@@ -78,8 +104,6 @@ console.log("source1", source1);
 console.log("source2", source2);
 
 console.log("");
-console.log("");
-console.log("");
 
 // Object.freeze(obj) - makes the object IMMUTABLE...
 const config = {
@@ -95,10 +119,16 @@ config.title = "Remedy APIs"; // SILENTLY IGNORED..
 delete config.version; // SILENTLY IGNORED...
 console.log(config);
 
+console.log("");
+
 // Object.hasOwn() - Checks if a property is directly on the object...
 console.log(Object.hasOwn(user, "isDeveloper"));
 console.log(Object.hasOwn(user, "toString"));
+console.log("Testing if CONFIG is FROZEN", Object.isFrozen(config));
+console.log("Testing if PRODUCT is FROZEN", Object.isFrozen(product));
+
 console.log(user);
+console.log("");
 
 // REAL WORLD EXAMPLE - COMBO
 const userData = {
@@ -112,11 +142,13 @@ const userDataKeys = Object.keys(userData);
 const userDataValues = Object.values(userData);
 const formEntry = Object.entries(userData)
 	.map(([key, value]) => `${key}: ${encodeURIComponent(value)}`)
-	.join(" - ");
-console.log(userDataKeys);
-console.log(userDataValues);
-console.log(userData);
-console.log(formEntry);
+	.join("; ");
+
+console.log("Object KEYS", userDataKeys);
+console.log("Object VALUES", userDataValues);
+console.log("Object VALUES - 3rd Item", userDataValues[2]);
+console.log("Object", userData);
+console.log("Object LIST", formEntry);
 console.log("");
 console.log("");
 
@@ -124,6 +156,8 @@ console.log("");
 
 // NESTED OBJECTS...
 let student = Object.assign(user);
+console.log("USER OBJ:", user);
+console.log("STUDENT OBJ:", student);
 delete student.city;
 student.address = { city: "Melbourne", streetNo: 712 };
 student.grades = [72, 86, 79, 90, 81];
@@ -133,22 +167,72 @@ console.log(student.address);
 console.log(student.address.streetNo);
 console.log(student.grades[1]);
 
+// HOW TO DEBUGGING OBJECTS..
+console.log(JSON.stringify(student, null, 2));
+
+console.log("");
+console.log("");
+
+let someone = Object.assign({}, user);
+console.log("USER:", user);
+console.log("SOMEONE:", someone);
+console.log("Has GRADES?", someone.hasOwnProperty("grades"));
+console.log("SOMEONE GRADES:", someone.grades);
+console.log("SOMEONE:", JSON.stringify(someone));
+
+delete someone.grades;
+console.log("SOMEONE:", someone);
+console.log("Has GRADES?", someone.hasOwnProperty("grades"));
+console.log("SOMEONE GRADES:", someone.grades);
+console.log("SOMEONE:", JSON.stringify(someone));
+console.log(JSON.stringify(someone, null, 2));
+
+console.log("");
+console.log("");
+
+let anotherPerson = { ...user };
+console.log("ANOTHER PERSON:", anotherPerson);
+delete anotherPerson.address;
+console.log("ANOTHER PERSON:", anotherPerson);
+
+console.log("");
+console.log("");
+
 const myself = {
 	firstName: "Michael",
-	lastName: "Prempeh",
+	lastName: "Agyemang Prempeh",
 	fullName() {
 		return `${this.firstName} ${this.lastName}`;
 	},
 };
-console.log(myself);
-console.log(myself.fullName());
+console.log("MySelf OBJ:", myself);
+console.log("MySelf Fullname fxn:", myself.fullName());
 
-// HOW TO DEBUGGING OBJECTS..
-console.log(JSON.stringify(student, null, 2));
+console.log("");
+console.log("");
 
 // CHALLENGE 1. Create an object car, with props
 // brand, model, & year. Add method getAge() that
-// returns teh age of the car
+// returns the age of the car
+
+const newCar = {
+	brand: "Mercedes",
+	model: "GLC",
+	releaseYear: 2021,
+	getAge() {
+		const today = new Date();
+		const currentYear = today.getFullYear();
+		const carAge = currentYear - this.releaseYear;
+		return `This ${newCar.brand} ${newCar.model} is at least ${carAge} years on the road...`;
+	},
+};
+console.log(newCar);
+console.log(newCar.getAge());
+const carAgeFxn = newCar.getAge();
+console.log(carAgeFxn);
+
+console.log("");
+console.log("");
 
 const car = {
 	brand: "Toyota",
@@ -164,8 +248,6 @@ const car = {
 }; // PSA solution...
 
 console.log(car.getAge());
-console.log("");
-console.log("");
 console.log("");
 console.log("");
 
@@ -188,7 +270,7 @@ function readObject(obj) {
 }
 readObject(users);
 
-// // CHALLENGE 3. Write a fxn that takes an object and returns an array of strings.
-// const sampleObj = { name: "Remedy", isMarried: false };
-// const objArray = Object.entries(sampleObj);
-// console.log(objArray);
+// // // CHALLENGE 3. Write a fxn that takes an object and returns an array of strings.
+// // const sampleObj = { name: "Remedy", isMarried: false };
+// // const objArray = Object.entries(sampleObj);
+// // console.log(objArray);
