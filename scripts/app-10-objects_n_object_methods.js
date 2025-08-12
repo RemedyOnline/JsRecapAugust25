@@ -270,7 +270,107 @@ function readObject(obj) {
 }
 readObject(users);
 
-// // // CHALLENGE 3. Write a fxn that takes an object and returns an array of strings.
-// // const sampleObj = { name: "Remedy", isMarried: false };
-// // const objArray = Object.entries(sampleObj);
-// // console.log(objArray);
+console.log("");
+console.log("");
+console.log("");
+
+// CHALLENG 2. Given an object, write a function that loops through your object...
+const vehicles = {
+	car1: { model: "Kantanka", brand: "Amoanimaa", releaseYear: 2018 },
+	car2: { model: "Toyota", brand: "Corolla", releaseYear: 2012 },
+};
+
+function sentenceFromObject(object) {
+	const vehicleKeys = Object.keys(vehicles);
+
+	for (let vehicle = 0; vehicle < vehicleKeys.length; vehicle++) {
+		const vehicleKey = vehicleKeys[vehicle];
+		const vehicleObject = vehicles[vehicleKey];
+
+		const model = vehicleObject.model;
+		const brand = vehicleObject.brand;
+		const year = vehicleObject.releaseYear;
+		console.log("models:", model);
+		console.log("brands:", brand);
+		console.log("years:", year);
+		console.log(
+			`${brand} from ${model} is still kickin.. even though it was released wayback, ${year}`
+		);
+	}
+}
+
+sentenceFromObject(vehicles);
+
+console.log("");
+console.log("");
+console.log("");
+
+// CHALLENGE 3. Write a fxn that takes an object and returns an array of strings.
+const sampleObj = { name: "Remedy", isMarried: false };
+const objKeys = Object.keys(sampleObj);
+const objValues = Object.values(sampleObj);
+console.log(objKeys.toString() + " " + objValues.toString()); // PSA Soln...
+
+function objToStringArray(sampleObj) {
+	// PSA Soln...
+	const result = [];
+	const objArray = Object.entries(sampleObj);
+
+	for (const [key, value] of objArray) {
+		const formatted = `${key}: ${value}`;
+		result.push(formatted);
+	}
+	return result;
+}
+console.log(objToStringArray(sampleObj));
+
+// QUIZ
+const quiz = { name: "Kofi" };
+delete quiz.name;
+console.log(quiz.name); //
+
+console.log("");
+console.log("");
+console.log("");
+
+// 🔁 Practice Task
+// Build a function called flattenUserData that:
+// Accepts an object with nested objects
+// Returns a flat version of the object with keys joined by dot notation
+
+const EgObj = {
+	name: "John",
+	address: {
+		city: "Accra",
+		zip: "00123",
+	},
+};
+
+console.log("Main obj:", EgObj);
+
+function flattenUserData(EgObj) {
+	const result = {};
+	for (const key in EgObj) {
+		const objValue = EgObj[key];
+
+		if (
+			typeof objValue === Object &&
+			objValue !== null &&
+			!Array.isArray(objValue)
+		) {
+			console.log(`${key} is an object, need to flatten it!`);
+			for (const nestedKey in objValue) {
+				const nestedValue = objValue[nestedKey];
+				const flatKey = `${key}.${nestedValue}`;
+				result[flatKey] = nestedValue;
+			}
+		} else {
+			console.log(`${key} is a simple value, let's keep it!`);
+			result[key] = objValue;
+		}
+		console.log(result);
+	}
+
+	return result;
+}
+flattenUserData(EgObj);
