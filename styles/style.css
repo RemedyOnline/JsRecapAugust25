@@ -104,7 +104,7 @@ body {
 /* List Styles */
 .concept-list,
 .practice-list {
-	list-style: none;
+	/* list-style: ; */
 	display: grid;
 	gap: 12px;
 }
