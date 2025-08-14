@@ -17,11 +17,11 @@ child.greet();
 console.log(parent);
 console.log(child);
 
-fetch("data.json")
-	.then((response) => response.json())
-	.then((data) => console.log(data))
-	.catch((err) => console.error(err))
-	.finally(() => console.log("done"));
+// fetch("data.json")
+// 	.then((response) => response.json())
+// 	.then((data) => console.log(data))
+// 	.catch((err) => console.error(err))
+// 	.finally(() => console.log("done"));
 
 console.log("");
 console.log("");
@@ -60,16 +60,16 @@ try {
 }
 
 // using promise .catch()
-fetch("url").then(console.log("this")).catch(console.log("error"));
+// fetch("url").then(console.log("this")).catch(console.log("error"));
 
 // using async/await with try/catch..
-async function fetchData() {
-	try {
-		const data = await fetch("link");
-	} catch (error) {
-		console.error(error);
-	}
-}
+// async function fetchData() {
+// 	try {
+// 		const data = await fetch("link");
+// 	} catch (error) {
+// 		console.error(error);
+// 	}
+// }
 
 // ES Modules...
 // export const name = "Slyy";
@@ -80,10 +80,10 @@ async function fetchData() {
 // import { name, greet } from "./";
 
 // example of promises
-fetchData()
-	.then((res) => processData(res))
-	.then((final) => console.log(final))
-	.catch((err) => console.error(err));
+// fetchData()
+// 	.then((res) => processData(res))
+// 	.then((final) => console.log(final))
+// 	.catch((err) => console.error(err));
 
 async function run() {
 	try {
@@ -132,3 +132,16 @@ console.log(deepCopy);
 deepCopy.d.e = 6;
 console.log(deepCopy);
 console.log(originalObj);
+
+console.log("");
+console.log("");
+console.log("");
+
+document.querySelector("a").addEventListener("click", (e) => {
+	e.preventDefault(); // stops link navigation
+	console.log("Navigation prevented");
+});
+
+div.innerHTML = "<strong>Hi</strong>"; // renders bold
+div.innerText = "<strong>Hi</strong>"; // literally shows <strong>Hi</strong>
+div.textContent = "<strong>Hi</strong>"; // same as innerText here, but includes hidden text if present

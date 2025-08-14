@@ -27,6 +27,10 @@ body {
 	backdrop-filter: blur(10px);
 	border-radius: 20px;
 	border: 1px solid rgba(255, 255, 255, 0.2);
+	/* position: absolute;
+	z-index: 10;
+	right: 0px;
+	top: 0px; */
 }
 
 .main-title {
