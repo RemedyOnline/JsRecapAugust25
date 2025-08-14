@@ -131,6 +131,7 @@ const obj = {
 // }
 
 console.log("");
+console.log("");
 
 // Control Flow with callbacks...
 function task1(cb) {
@@ -139,4 +140,180 @@ function task1(cb) {
 		cb(null, "A");
 	}, 200);
 }
-task1((n) => n);
+function task2(prev, cb) {
+	setTimeout(() => {
+		console.log("2, got", prev);
+		cb(null, "B");
+	}, 100);
+}
+
+task1((err, res1) => {
+	if (err) return handle(err);
+	task2(res1, (err, res2) => {
+		if (err) return handle(err);
+		console.log("Done with", res2);
+	});
+});
+
+console.log("");
+console.log("");
+console.log("");
+
+// Run in Parallel (collect all results...)
+function fetchX(cb) {
+	setTimeout(() => {
+		cb(null, "X");
+	}, 150);
+}
+function fetchY(cb) {
+	setTimeout(() => {
+		cb(null, "Y");
+	}, 50);
+}
+let results = {};
+let pending = 2;
+let done = false;
+
+function finish(err) {
+	if (done) return;
+	if (err) {
+		done = true;
+		return handle(err);
+	}
+	pending--;
+	if (pending === 0) {
+		console.log("All done:", results);
+	}
+}
+
+fetchX((err, x) => {
+	if (err) return finish(err);
+	results.x = x;
+	finish();
+});
+fetchX((err, y) => {
+	if (err) return finish(err);
+	results.y = y;
+	finish();
+});
+
+// Ensure callbacks are called once...
+// NB: A classic bug is calling a callback multiple times...
+function once(fn) {
+	let called = false;
+	return function (...args) {
+		if (called) return;
+		called = true;
+		return fn.apply(this, args);
+	};
+}
+
+const onlyOnce = once((msg) => console.log("Run:", msg));
+onlyOnce("Only ones");
+onlyOnce("2nd time");
+
+// Try/Catch with async...
+// try {
+// 	setTimeout(() => {
+// 		throw new Error("Boom");
+// 	}, 0);
+// } catch (e) {}
+
+// Converting Callback API - Promises Overview
+function readFileP(path) {
+	return new Promise((resolve, reject) => {
+		FileSystem.readFile(path, "utf8", (err, data) => {
+			if (err) reject(err);
+			else resolve(data);
+		});
+	});
+}
+
+// Debugging Callbacks...
+// 1. Log boundaries...
+// console.log("job");
+// doAsync((err, res) => {
+// 	console.timeEnd("job");
+// 	console.log({ err, res });
+// });
+
+// QUIZ - fixing a print issue...
+// storing THIS in a variable
+const user = {
+	name: "Mike",
+	speakLater() {
+		const thisKeyword = this;
+		setTimeout(function () {
+			console.log(thisKeyword.name);
+		}, 100);
+	},
+};
+user.speakLater();
+
+// using .bind(this)
+const user2 = {
+	name: "John",
+	speakLater() {
+		setTimeout(
+			function () {
+				console.log(this.name);
+			}.bind(this),
+			100
+		);
+	},
+};
+user2.speakLater();
+
+// using Arrow function
+const user3 = {
+	name: "Paul",
+	speakLater() {
+		setTimeout(() => {
+			console.log(this.name);
+		}, 100);
+	},
+};
+user3.speakLater();
+
+console.log("");
+console.log("");
+console.log("");
+
+// MINI CHALLENGE - Write a function FETCHUSER, that
+//-takes a username
+//-simulates an API request with setTimeout (2secs)
+//- calls a callback with the message "fetched user: username"
+
+// PSA solution...
+function mentionUserName(username) {
+	console.log(`Fetched user: ${username}`);
+}
+
+function fetchUser(userCallback) {
+	const user = "Matthew";
+	setTimeout(() => {
+		userCallback(user);
+	}, 2000);
+}
+
+fetchUser(mentionUserName);
+
+// alternative solution...
+function mentionUserNameAlt(message) {
+	console.log(message);
+}
+
+function fetchUserAlt(username, userCallback) {
+	if (!username) {
+		userCallback("Error, Username required", null);
+	}
+	setTimeout(() => {
+		const message = `Fetched user: ${username}`;
+		userCallback(message);
+	}, 1000);
+}
+
+fetchUserAlt("Kofi", mentionUserNameAlt);
+
+// CHALLENGE 2 - Create a functino that calls action(index) n times (synchronously)
+function repeat(n, action) {}

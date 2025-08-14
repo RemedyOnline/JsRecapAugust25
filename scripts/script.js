@@ -313,3 +313,5 @@ console.log(diff({ num1: 2 }));
 ((m, n) => {
 	console.log(`Age = ${m + n}`);
 })(10, 8);
+
+// INTERVIEW
